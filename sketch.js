@@ -27,6 +27,33 @@ function draw()
         return;
     }
 }
+//circles
+for (let circle of circles){
+    fill(circle.color);
+    ellipse(circle.x, circle.y, circle.size); //draws each circle
+    }
+
+function createCircle(){
+    return {
+        x: random(width),
+        y: random(height),
+        size: 50,
+        color: color(random(255), random(255), random(255)),
+    }
+}
+
+function mousePressed() {
+    //check if clicked
+    for (let i = circles.length - 1; i >= 0; i--) {
+        let d = dist(mouseX, mouseY, circles[i].x, circles[i].y);
+        if (d < circles[i].size/2) {
+            score++; //incremet score
+            circles.splice(i, 1); //remove the clicked circle
+            circles.push(createCircle()); //creates a new circle
+            break; //exit the loop fter clicking a circle
+        }
+    }
+}
 function endGame() {
     background(255);
     textSize(32);
