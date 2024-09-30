@@ -1,6 +1,7 @@
 let score = 0;
 let startTime;
 let gameTime = 15; //Game lasts for 15 seconds
+let circles = [];
 
 function setup()
 {
@@ -50,7 +51,7 @@ function mousePressed() {
             score++; //incremet score
             circles.splice(i, 1); //remove the clicked circle
             circles.push(createCircle()); //creates a new circle
-            break; //exit the loop fter clicking a circle
+            break; //exit the loop after clicking a circle
         }
     }
 }
@@ -58,8 +59,8 @@ function endGame() {
     background(255);
     textSize(32);
     fill(0);
-    textAlgn(CENTER, CENTER);
+    textAlign(CENTER, CENTER);
     text('Game Over', width/2, height/2 - 20);
-    text('Final Score: ' + score, wdith/2, height/2 + 20);
+    text('Final Score: ' + score, width/2, height/2 + 20);
     noLoop(); //stops the game loop
 }
