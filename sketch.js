@@ -7,6 +7,9 @@ function setup()
 {
     createCanvas(400,400);
     startTime = millis(); //Records the time when the game starts
+    for (let i = 0; i < 5; i++) {
+        circles.push(createCircle());
+    }
 }
 
 function draw()
@@ -27,12 +30,12 @@ function draw()
         endGame();
         return;
     }
-}
-//circles
+    //circles
 for (let circle of circles){
     fill(circle.color);
     ellipse(circle.x, circle.y, circle.size); //draws each circle
     }
+}
 
 function createCircle(){
     return {
